@@ -1,0 +1,35 @@
+{
+  "editor.mouseWheelZoom": true,
+  "terminal.integrated.mouseWheelZoom": true,
+
+  "explorer.confirmDelete": false,
+  "security.workspace.trust.untrustedFiles": "open",
+
+  "editor.minimap.enabled": false,
+  "editor.stickyScroll.enabled": false,
+  "terminal.integrated.stickyScroll.enabled": false,
+
+  "workbench.startupEditor": "none",
+  "workbench.editor.enablePreview": false,
+  "workbench.iconTheme": "vscode-icons",
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // 🔥 AUTOCOMPLETE (equilibrado)
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false1
+  },
+  "editor.suggestOnTriggerCharacters": true,
+  "editor.inlineSuggest.enabled": false,
+
+  // 🔥 ORGANIZAÇÃO DE LINHA
+  "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 100
+}
