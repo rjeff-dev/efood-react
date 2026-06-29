@@ -9,7 +9,7 @@ type Props = {
   products: Product[]
 }
 
-const ProductList = ({ products }: Props) => (
+const PerfilProduct = ({ products }: Props) => (
   <Section>
     <Container>
       <List>
@@ -27,4 +27,4 @@ const ProductList = ({ products }: Props) => (
   </Section>
 )
 
-export default ProductList
+export default PerfilProduct

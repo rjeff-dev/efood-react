@@ -2,7 +2,6 @@ import ProductList from '../../components/ProductList'
 
 import pizza from '../../assets/images/pizza_marguerita.png'
 import PerfilHeader from '../../components/PerfilHeader'
-import RestaurantHero from '../../components/ProfileHero'
 import Product from '../../models/Product'
 
 const products = [
