@@ -7,7 +7,7 @@ type Props = {
   description: string
 }
 
-const ProductCard = ({ description, image, title }: Props) => (
+const PerfilCard = ({ description, image, title }: Props) => (
   <Card>
     <Image src={image} alt={title} />
 
@@ -23,4 +23,4 @@ const ProductCard = ({ description, image, title }: Props) => (
   </Card>
 )
 
-export default ProductCard
+export default PerfilCard

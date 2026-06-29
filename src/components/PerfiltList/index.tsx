@@ -1,7 +1,7 @@
 import { Container } from '../../styles'
 import Product from '../../models/Product'
 
-import ProductCard from '../ProductCard'
+import ProductCard from '../PerfilCard'
 
 import { List, Item, Section } from './style'
 
@@ -9,7 +9,7 @@ type Props = {
   products: Product[]
 }
 
-const PerfilProduct = ({ products }: Props) => (
+const PerfilList = ({ products }: Props) => (
   <Section>
     <Container>
       <List>
@@ -27,4 +27,4 @@ const PerfilProduct = ({ products }: Props) => (
   </Section>
 )
 
-export default PerfilProduct
+export default PerfilList

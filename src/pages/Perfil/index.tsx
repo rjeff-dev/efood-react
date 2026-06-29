@@ -1,4 +1,4 @@
-import ProductList from '../../components/ProductList'
+import ProductList from '../../components/PerfiltList'
 
 import pizza from '../../assets/images/pizza_marguerita.png'
 import PerfilHeader from '../../components/PerfilHeader'
