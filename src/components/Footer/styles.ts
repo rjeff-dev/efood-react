@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
 
 import hero from '../../assets/images/Vector.png'
 

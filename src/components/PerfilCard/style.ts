@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import Button from '../Button'
 import { ButtonContainer } from '../Button/style'
 
 export const Card = styled.div`
