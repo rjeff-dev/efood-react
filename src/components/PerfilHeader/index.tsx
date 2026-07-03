@@ -1,11 +1,14 @@
 import { HeaderContainer, HeaderBar, Logo, Carrinho } from './styles'
 
 import logo from '../../assets/images/logo.png'
+import Button from '../Button'
 
 const PerfilHeader = () => (
   <HeaderBar>
     <HeaderContainer>
-      <Carrinho>Restaurantes</Carrinho>
+      <Button type="link" to="/" title="Clique aqui para voltar para a home">
+        Restaurantes
+      </Button>
 
       <Logo src={logo} alt="Logo" />
 

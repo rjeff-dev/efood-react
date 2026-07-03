@@ -5,7 +5,7 @@ export const Card = styled.div`
   margin-bottom: 48px;
   position: relative;
 
-  background-color: ${cores.fundoQuente};
+  background-color: ${cores.branca};
   border: 1px solid ${cores.vermelhoRosa};
   max-width: 472px;
   width: 100%;

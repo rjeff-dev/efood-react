@@ -3,6 +3,8 @@ import ProductList from '../../components/PerfiltList'
 import pizza from '../../assets/images/pizza_marguerita.png'
 import PerfilHeader from '../../components/PerfilHeader'
 import Product from '../../models/Product'
+import ProfileHero from '../../components/ProfileHero'
+import hero from '../../assets/images/Hero.png'
 
 const products = [
   new Product({
@@ -52,6 +54,11 @@ const products = [
 const Perfil = () => (
   <>
     <PerfilHeader />
+    <ProfileHero
+      image={hero}
+      tipo={'Italiana'}
+      title={'La Dolce Vita Trattoria'}
+    />
 
     <ProductList products={products} />
   </>

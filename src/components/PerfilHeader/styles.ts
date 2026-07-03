@@ -34,7 +34,7 @@ export const Logo = styled.img`
 
 export const Carrinho = styled.span`
   font-size: 18px;
+  line-height: 100%;
   font-weight: bold;
-  margin-top: 80px;
-  margin-bottom: 80px;
+  margin: 80px 0;
 `

@@ -18,7 +18,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${cores.branca};
+    background-color: ${cores.fundoQuente};
     color: ${cores.vermelhoRosa};
   }
 `

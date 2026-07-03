@@ -1,10 +1,14 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
+import hero from '../../assets/images/Vector.png'
+
 export const FooterContainer = styled.div`
   width: 100%;
-  background-color: ${cores.fundoQuente};
   padding: 40px 0;
+  background-image: url(${hero});
+  background-repeat: repeat;
+  display: flex;
 `
 export const Content = styled.div`
   display: flex;
@@ -15,7 +19,7 @@ export const Content = styled.div`
 export const Logo = styled.img`
   display: block;
   align-items: center;
-  margin-bottom: 32px;
+  margin-top: 40px;
 `
 
 export const List = styled.ul`
@@ -27,6 +31,7 @@ export const List = styled.ul`
   list-style: none;
 
   margin-bottom: 80px;
+  margin-top: 32px;
 `
 
 export const ListItem = styled.li`

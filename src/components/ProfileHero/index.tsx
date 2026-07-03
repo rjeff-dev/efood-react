@@ -1,4 +1,4 @@
-import { HeroContainer, Info, Overlay, Tipo, Title } from './style'
+import { HeroContainer, Overlay, Tipo, Title } from './style'
 
 type Props = {
   image: string
@@ -9,12 +9,9 @@ type Props = {
 const RestaurantHero = ({ image, tipo, title }: Props) => (
   <HeroContainer image={image}>
     <Overlay>
-      <Info>
-        <Tipo>{tipo}</Tipo>
-      </Info>
-      <Info>
-        <Title>{title}</Title>
-      </Info>
+      <Tipo>{tipo}</Tipo>
+
+      <Title>{title}</Title>
     </Overlay>
   </HeroContainer>
 )

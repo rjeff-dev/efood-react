@@ -27,11 +27,15 @@ export const Content = styled.div`
 `
 
 export const Logo = styled.img`
-  margin-bottom: 16px;
+  margin-top: 64px;
 `
 
 export const Title = styled.p`
-  font-size: 18px;
+  margin-bottom: 40px;
+  margin-top: 136px;
+  max-width: 540px;
+  height: 84px;
+  font-size: 36px;
   font-weight: bold;
   color: ${cores.vermelhoRosa};
 `

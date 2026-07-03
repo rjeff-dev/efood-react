@@ -5,48 +5,63 @@ type Props = {
   image: string
 }
 
-export const HeroContainer = styled.div<Props>`
+export const HeroContainer = styled.section<Props>`
   width: 100%;
-  height: auto;
+  height: 280px;
 
-  background-image: url(${(props) => props.image});
+  background-image: url(${({ image }) => image});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
   position: relative;
   margin-bottom: 56px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
 `
 
 export const Overlay = styled.div`
+  position: relative;
+  z-index: 1;
+
+  max-width: 1024px;
   width: 100%;
   height: 100%;
 
-  background-color: rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `
 
-export const Info = styled.div`
-  max-width: 1024px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 24px;
+export const Tipo = styled.span`
+  margin-top: 24px;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: 100%;
+  letter-spacing: 0;
 
   color: ${cores.branca};
 `
 
-export const Tipo = styled.span`
-  display: block;
-  margin-bottom: 8px;
-  font-size: 32px;
-  line-height: 100%;
-`
-
 export const Title = styled.h2`
+  margin-bottom: 32px;
+
+  font-family: 'Roboto', sans-serif;
   font-size: 32px;
-  font-weight: bold;
-  max-width: 680px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 100%;
+  letter-spacing: 0;
+
+  color: ${cores.branca};
 `
