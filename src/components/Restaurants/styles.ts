@@ -20,6 +20,7 @@ export const FoodImage = styled.img`
   width: 100%;
   display: block;
   border: none;
+  height: 250px;
 `
 
 export const Content = styled.div`

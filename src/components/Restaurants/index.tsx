@@ -16,37 +16,41 @@ import estrelinha from '../../assets/images/estrelinha.png'
 import Button from '../Button'
 
 type Props = {
-  nome: string
-  nota: number
+  id: number
+  titulo: string
+  avaliacao: number
   descricao: string
   tipo: string
-  destaque?: boolean
-  imagem: string
+  destacado?: boolean
+  capa: string
 }
 
 const Restaurants = ({
-  nome,
-  nota,
+  titulo,
+  avaliacao,
   descricao,
   tipo,
-  destaque,
-  imagem
+  destacado,
+  capa,
+  id
 }: Props) => (
   <Card>
     <ImgContainer>
-      <FoodImage src={imagem} alt={nome} />
+      <FoodImage src={capa} alt={titulo} />
 
       <Tags>
-        {destaque && <Tag variant="destaque">Destaque da semana</Tag>}
+        {destacado && <Tag variant="destaque">Destaque da semana</Tag>}
+
         <Tag variant="tipo">{tipo}</Tag>
       </Tags>
     </ImgContainer>
+
     <Content>
       <Header>
-        <Title>{nome}</Title>
+        <Title>{titulo}</Title>
 
         <Nota>
-          {nota}
+          {avaliacao}
           <Estrela src={estrelinha} alt="estrela" />
         </Nota>
       </Header>
@@ -55,7 +59,7 @@ const Restaurants = ({
 
       <Button
         type="link"
-        to="/Perfil"
+        to={`/perfil/${id}`}
         title="Clique aqui para saber mais sobre esse restaurante"
       >
         Saiba mais

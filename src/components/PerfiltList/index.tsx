@@ -1,5 +1,5 @@
+import { Product } from '../../pages/Home'
 import { Container } from '../../styles'
-import Product from '../../models/Product'
 
 import ProductCard from '../PerfilCard'
 
@@ -13,12 +13,12 @@ const PerfilList = ({ products }: Props) => (
   <Section>
     <Container>
       <List>
-        {products.map((product) => (
-          <Item key={product.id}>
+        {products.map((products) => (
+          <Item key={products.id}>
             <ProductCard
-              image={product.image}
-              title={product.title}
-              description={product.description}
+              image={products.foto}
+              title={products.nome}
+              description={products.descricao}
             />
           </Item>
         ))}
