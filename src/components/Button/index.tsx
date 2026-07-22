@@ -5,7 +5,7 @@ type Props = {
   type: 'button' | 'link'
   title: string
   to?: string
-  onClick?: () => void
+  onClick?: React.MouseEventHandler
   children: ReactNode
 }
 
@@ -19,7 +19,7 @@ const Button = ({ type, title, to, onClick, children }: Props) => {
   }
 
   return (
-    <ButtonLink to={to as string} type="button" title={title} onClick={onClick}>
+    <ButtonLink to={to as string} title={title} onClick={onClick}>
       {children}
     </ButtonLink>
   )

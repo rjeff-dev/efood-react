@@ -1,13 +1,17 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+
 import { cores } from '../../styles'
 import { ButtonContainer } from '../Button/style'
 
-export const Card = styled.div`
+export const Card = styled(Link)`
+  width: 320px;
   background-color: ${cores.vermelhoRosa};
   color: ${cores.branco};
   padding: 8px;
-  display: flex;
+  display: block;
   flex-direction: column;
+  text-decoration: none;
 
   ${ButtonContainer} {
     width: 100%;

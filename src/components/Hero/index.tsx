@@ -1,8 +1,5 @@
-import { useEffect, useState } from 'react'
-
 import { HeroImage, Container, Content, Logo, Title } from './style'
 import logo from '../../assets/images/logo.png'
-import { Restaurante } from '../../pages/Home'
 
 export const Hero = () => {
   return (

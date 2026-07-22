@@ -7,18 +7,22 @@ import { List, Item, Section } from './style'
 
 type Props = {
   products: Product[]
+  onOpen: (produto: Product) => void
 }
 
-const PerfilList = ({ products }: Props) => (
+const PerfilList = ({ products, onOpen }: Props) => (
   <Section>
     <Container>
       <List>
-        {products.map((products) => (
-          <Item key={products.id}>
+        {products.map((produto) => (
+          <Item key={produto.id}>
             <ProductCard
-              image={products.foto}
-              title={products.nome}
-              description={products.descricao}
+              id={produto.id}
+              image={produto.foto}
+              title={produto.nome}
+              description={produto.descricao}
+              preco={produto.preco}
+              onOpen={() => onOpen(produto)}
             />
           </Item>
         ))}

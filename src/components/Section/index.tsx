@@ -1,4 +1,4 @@
-import { Container, ListItem, Title } from './style'
+import { Container, Title } from './style'
 
 export type Props = {
   title: string
