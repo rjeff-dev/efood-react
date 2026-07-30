@@ -1,7 +1,5 @@
 import { MouseEvent } from 'react'
 
-import Button from '../Button'
-
 import {
   Overlay,
   Container,
@@ -11,7 +9,8 @@ import {
   Title,
   Description,
   Portion,
-  CloseButton
+  CloseButton,
+  AddButton
 } from './style'
 
 import close from '../../assets/images/close_1.png'
@@ -65,9 +64,7 @@ const Cardapio = ({
 
             <Portion>Serve: {portion}</Portion>
 
-            <Button type="button" title="Adicionar ao carrinho">
-              Adicionar ao carrinho - {formataPreco(price)}
-            </Button>
+            <AddButton>Adicionar ao carrinho - {formataPreco(price)}</AddButton>
           </TextContainer>
         </Content>
       </Container>

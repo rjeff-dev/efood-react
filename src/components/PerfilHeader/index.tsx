@@ -1,19 +1,17 @@
-import { HeaderContainer, HeaderBar, Logo, Carrinho } from './styles'
+import { HeaderContainer, HeaderBar, Logo, Carrinho, BackLink } from './styles'
 
 import logo from '../../assets/images/logo.png'
-import Button from '../Button'
 
 const PerfilHeader = () => (
   <HeaderBar>
     <HeaderContainer>
-      <Button type="link" to="/" title="Clique aqui para voltar para a home">
-        Restaurantes
-      </Button>
+      <BackLink to="/">Restaurantes</BackLink>
 
-      <Logo src={logo} alt="Logo" />
+      <Logo src={logo} alt="eFood" />
 
       <Carrinho>0 produto(s) no carrinho</Carrinho>
     </HeaderContainer>
   </HeaderBar>
 )
+
 export default PerfilHeader

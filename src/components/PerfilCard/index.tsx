@@ -17,6 +17,14 @@ const formataPreco = (preco = 0) => {
   }).format(preco)
 }
 
+export const getDescricao = (descricao: string) => {
+  if (descricao.length > 129) {
+    return descricao.slice(0, 130) + '...'
+  }
+
+  return descricao
+}
+
 const PerfilCard = ({
   image,
   title,
@@ -25,14 +33,6 @@ const PerfilCard = ({
   preco,
   onOpen
 }: Props) => {
-  const getDescricao = (descricao: string) => {
-    if (descricao.length > 129) {
-      return descricao.slice(0, 130) + '...'
-    }
-
-    return descricao
-  }
-
   return (
     <Card to={`/Perfil/${id}`}>
       <Image src={image} alt={title} />

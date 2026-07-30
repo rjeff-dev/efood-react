@@ -1,29 +1,28 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 import fundo from '../../assets/images/fundo.png'
+import { cores } from '../../styles'
 
-type Props = {
-  image: string
-}
+export const HeaderBar = styled.header`
+  width: 100%;
+  background-image: url(${fundo});
+  background-repeat: repeat;
+`
 
-export const HeaderContainer = styled.div<Props>`
+export const HeaderContainer = styled.div`
   max-width: 1024px;
   width: 100%;
   height: 186px;
+
   margin: 0 auto;
+  padding: 0 16px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   position: relative;
-  padding: 16px;
-`
-
-export const HeaderBar = styled.header`
-  width: 100%;
-  background-image: url(${fundo});
-  background-repeat: repeat;
 `
 
 export const Logo = styled.img`
@@ -32,9 +31,19 @@ export const Logo = styled.img`
   transform: translateX(-50%);
 `
 
-export const Carrinho = styled.span`
+export const BackLink = styled(Link)`
+  color: ${cores.vermelhoRosa};
   font-size: 18px;
-  line-height: 100%;
-  font-weight: bold;
-  margin: 80px 0;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`
+
+export const Carrinho = styled.span`
+  color: ${cores.vermelhoRosa};
+  font-size: 18px;
+  font-weight: 700;
 `

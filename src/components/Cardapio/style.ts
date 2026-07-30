@@ -39,6 +39,7 @@ export const Image = styled.img`
   width: 280px;
   height: 280px;
   object-fit: cover;
+  flex-shrink: 0;
 `
 
 export const TextContainer = styled.div`
@@ -82,4 +83,18 @@ export const CloseButton = styled.button`
     width: 16px;
     height: 16px;
   }
+`
+export const AddButton = styled.button`
+  background-color: #ffe8d9;
+  color: ${cores.vermelhoRosa};
+
+  border: none;
+  cursor: pointer;
+
+  padding: 4px 8px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  margin-top: 16px;
 `
