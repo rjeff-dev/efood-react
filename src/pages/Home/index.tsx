@@ -1,43 +1,22 @@
-import { useEffect, useState } from 'react'
-
 import Hero from '../../components/Hero'
 import RestList from '../../components/RestaurantHero'
 import { Container } from '../../styles'
 
-export type Product = {
-  id: number
-  foto: string
-  preco: number
-  nome: string
-  descricao: string
-  porcao: string
-}
-
-export type Restaurante = {
-  id: number
-  titulo: string
-  destacado: boolean
-  tipo: string
-  avaliacao: number
-  descricao: string
-  capa: string
-  cardapio: Product[]
-}
+import { useGetRestaurantesQuery } from '../../services/api'
 
 const Home = () => {
-  const [rests, setRests] = useState<Restaurante[]>([])
+  const { data: rests, isLoading } = useGetRestaurantesQuery()
 
-  useEffect(() => {
-    fetch('https://api-ebac.vercel.app/api/efood/restaurantes').then((res) =>
-      res.json().then((res) => setRests(res))
-    )
-  }, [])
+  if (isLoading) {
+    return <p>Carregando...</p>
+  }
 
   return (
     <>
       <Hero />
+
       <Container>
-        <RestList rests={rests} />
+        <RestList rests={rests || []} />
       </Container>
     </>
   )

@@ -1,12 +1,11 @@
+import { MouseEvent } from 'react'
+
 import Button from '../Button'
 import { Card, Content, Description, Image, Title } from './style'
+import { Product } from '../../types/Restaurants'
 
 type Props = {
-  id: number
-  image: string
-  title: string
-  description: string
-  preco: number
+  cardapio: Product
   onOpen: () => void
 }
 
@@ -25,25 +24,29 @@ export const getDescricao = (descricao: string) => {
   return descricao
 }
 
-const PerfilCard = ({
-  image,
-  title,
-  description,
-  id,
-  preco,
-  onOpen
-}: Props) => {
+const PerfilCard = ({ cardapio, onOpen }: Props) => {
+  const handleOpen = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    event.stopPropagation()
+
+    onOpen()
+  }
+
   return (
-    <Card to={`/Perfil/${id}`}>
-      <Image src={image} alt={title} />
+    <Card to={`/Perfil/${cardapio.id}`}>
+      <Image src={cardapio.foto} alt={cardapio.nome} />
 
       <Content>
-        <Title>{title}</Title>
+        <Title>{cardapio.nome}</Title>
 
-        <Description>{getDescricao(description)}</Description>
+        <Description>{getDescricao(cardapio.descricao)}</Description>
 
-        <Button type="button" title="Adicionar ao carrinho" onClick={onOpen}>
-          {`Adicionar ao carrinho - ${formataPreco(preco)}`}
+        <Button
+          type="button"
+          title="Adicionar ao carrinho"
+          onClick={handleOpen}
+        >
+          {`Adicionar ao carrinho - ${formataPreco(cardapio.preco)}`}
         </Button>
       </Content>
     </Card>

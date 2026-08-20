@@ -2,7 +2,7 @@ import Restaurants from '../Restaurants'
 import { ListContainer, List, ListItem } from './style'
 import { Container } from '../../styles'
 
-import { Restaurante } from '../../pages/Home'
+import { Restaurante } from '../../types/Restaurants'
 
 export type Props = {
   rests: Restaurante[]

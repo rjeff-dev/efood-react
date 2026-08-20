@@ -1,43 +1,45 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import PerfilHeader from '../../components/PerfilHeader'
 import ProfileHero from '../../components/ProfileHero'
 import ProductList from '../../components/PerfiltList'
-
-import { Product, Restaurante } from '../Home'
 import Cardapio from '../../components/Cardapio'
+
+import { Product } from '../../types/Restaurants'
+
+import { useGetRestaurantesQuery } from '../../services/api'
 
 const Perfil = () => {
   const { id } = useParams()
 
-  const [restInfo, setRestInfo] = useState<Restaurante | null>(null)
+  const { data: restaurantes, isLoading } = useGetRestaurantesQuery()
+
+  // Produto que foi clicado para abrir a modal
   const [produtoSelecionado, setProdutoSelecionado] = useState<Product | null>(
     null
   )
 
-  useEffect(() => {
-    fetch('https://api-ebac.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res: Restaurante[]) => {
-        const restaurante = res.find((item) => item.id === Number(id))
+  const restInfo = restaurantes?.find(
+    (restaurante) => restaurante.id === Number(id)
+  )
 
-        if (restaurante) {
-          setRestInfo(restaurante)
-        }
-      })
-  }, [id])
-
+  // Abre a modal com o produto selecionado
   const abrirModal = (produto: Product) => {
     setProdutoSelecionado(produto)
   }
 
+  // Fecha a modal
   const fecharModal = () => {
     setProdutoSelecionado(null)
   }
 
-  if (!restInfo) {
+  if (isLoading) {
     return <h2>Carregando...</h2>
+  }
+
+  if (!restInfo) {
+    return <h2>Restaurante não encontrado</h2>
   }
 
   return (
@@ -52,15 +54,13 @@ const Perfil = () => {
 
       <ProductList products={restInfo.cardapio} onOpen={abrirModal} />
 
-      <Cardapio
-        image={produtoSelecionado?.foto ?? ''}
-        title={produtoSelecionado?.nome ?? ''}
-        description={produtoSelecionado?.descricao ?? ''}
-        portion={produtoSelecionado?.porcao ?? ''}
-        price={produtoSelecionado?.preco ?? 0}
-        isOpen={produtoSelecionado !== null}
-        onClose={fecharModal}
-      />
+      {produtoSelecionado && (
+        <Cardapio
+          cardapio={produtoSelecionado}
+          isOpen={true}
+          onClose={fecharModal}
+        />
+      )}
     </>
   )
 }

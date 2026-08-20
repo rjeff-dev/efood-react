@@ -1,4 +1,4 @@
-import { Product } from '../../pages/Home'
+import { Product } from '../../types/Restaurants'
 import { Container } from '../../styles'
 
 import ProductCard from '../PerfilCard'
@@ -16,14 +16,7 @@ const PerfilList = ({ products, onOpen }: Props) => (
       <List>
         {products.map((produto) => (
           <Item key={produto.id}>
-            <ProductCard
-              id={produto.id}
-              image={produto.foto}
-              title={produto.nome}
-              description={produto.descricao}
-              preco={produto.preco}
-              onOpen={() => onOpen(produto)}
-            />
+            <ProductCard cardapio={produto} onOpen={() => onOpen(produto)} />
           </Item>
         ))}
       </List>

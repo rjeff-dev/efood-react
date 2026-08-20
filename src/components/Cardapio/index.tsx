@@ -1,4 +1,6 @@
 import { MouseEvent } from 'react'
+import { useDispatch } from 'react-redux'
+import { Product } from '../../types/Restaurants'
 
 import {
   Overlay,
@@ -14,13 +16,10 @@ import {
 } from './style'
 
 import close from '../../assets/images/close_1.png'
+import { add } from '../../store/reducers/cart'
 
 type Props = {
-  image: string
-  title: string
-  description: string
-  portion: string
-  price: number
+  cardapio: Product
   isOpen: boolean
   onClose: () => void
 }
@@ -32,17 +31,16 @@ const formataPreco = (preco = 0) => {
   }).format(preco)
 }
 
-const Cardapio = ({
-  image,
-  title,
-  description,
-  portion,
-  price,
-  isOpen,
-  onClose
-}: Props) => {
+const Cardapio = ({ cardapio, isOpen, onClose }: Props) => {
+  const dispatch = useDispatch()
+
   if (!isOpen) {
     return null
+  }
+
+  const addToCart = () => {
+    dispatch(add(cardapio))
+    onClose()
   }
 
   return (
@@ -51,20 +49,22 @@ const Cardapio = ({
         onClick={(e: MouseEvent<HTMLDivElement>) => e.stopPropagation()}
       >
         <CloseButton onClick={onClose}>
-          <img src={close} alt="Clique aqui para fechar " />
+          <img src={close} alt="Clique aqui para fechar" />
         </CloseButton>
 
         <Content>
-          <Image src={image} alt={title} />
+          <Image src={cardapio.foto} alt={cardapio.nome} />
 
           <TextContainer>
-            <Title>{title}</Title>
+            <Title>{cardapio.nome}</Title>
 
-            <Description>{description}</Description>
+            <Description>{cardapio.descricao}</Description>
 
-            <Portion>Serve: {portion}</Portion>
+            <Portion>Serve: {cardapio.porcao}</Portion>
 
-            <AddButton>Adicionar ao carrinho - {formataPreco(price)}</AddButton>
+            <AddButton onClick={addToCart}>
+              Adicionar ao carrinho - {formataPreco(cardapio.preco)}
+            </AddButton>
           </TextContainer>
         </Content>
       </Container>

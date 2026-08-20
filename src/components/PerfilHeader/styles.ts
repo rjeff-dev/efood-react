@@ -42,8 +42,9 @@ export const BackLink = styled(Link)`
   }
 `
 
-export const Carrinho = styled.span`
+export const CartButton = styled.a`
   color: ${cores.vermelhoRosa};
   font-size: 18px;
   font-weight: 700;
+  cursor: pointer;
 `
