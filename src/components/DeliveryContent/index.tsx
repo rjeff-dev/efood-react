@@ -32,6 +32,14 @@ const DeliveryContent = ({ onContinue, onBack }: DeliveryContentProps) => {
     }
   })
 
+  const getErrorMessage = (fieldName: string, message?: string) => {
+    const isTouched = fieldName in form.setTouched
+    const isInvalid = fieldName in form.errors
+
+    if (isTouched && isInvalid) return message
+    return ''
+  }
+
   return (
     <S.Container onSubmit={form.handleSubmit}>
       {/* Título da etapa */}
@@ -49,6 +57,7 @@ const DeliveryContent = ({ onContinue, onBack }: DeliveryContentProps) => {
             onChange={form.handleChange}
             onBlur={form.handleBlur}
           />
+          <small>{getErrorMessage('fullName', form.errors.fullName)}</small>
         </S.Field>
 
         {/* Endereço */}
@@ -62,12 +71,12 @@ const DeliveryContent = ({ onContinue, onBack }: DeliveryContentProps) => {
             onChange={form.handleChange}
             onBlur={form.handleBlur}
           />
+          <small>{getErrorMessage('address', form.errors.fullName)}</small>
         </S.Field>
 
         {/* Cidade */}
         <S.Field>
           <S.Label htmlFor="city">Cidade</S.Label>
-
           <S.Input
             id="city"
             name="city"
@@ -76,6 +85,7 @@ const DeliveryContent = ({ onContinue, onBack }: DeliveryContentProps) => {
             onChange={form.handleChange}
             onBlur={form.handleBlur}
           />
+          <small>{getErrorMessage('city', form.errors.fullName)}</small>
         </S.Field>
 
         {/* CEP + Número */}
@@ -91,6 +101,7 @@ const DeliveryContent = ({ onContinue, onBack }: DeliveryContentProps) => {
               onChange={form.handleChange}
               onBlur={form.handleBlur}
             />
+            <small>{getErrorMessage('zipCode', form.errors.fullName)}</small>
           </S.Field>
 
           <S.Field>
@@ -104,6 +115,7 @@ const DeliveryContent = ({ onContinue, onBack }: DeliveryContentProps) => {
               onChange={form.handleChange}
               onBlur={form.handleBlur}
             />
+            <small>{getErrorMessage('number', form.errors.fullName)}</small>
           </S.Field>
         </S.Row>
 
