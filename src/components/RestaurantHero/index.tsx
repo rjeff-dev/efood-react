@@ -1,8 +1,6 @@
 import Restaurants from '../Restaurants'
-import { ListContainer, List, ListItem } from './style'
+import * as S from './style'
 import { Container } from '../../styles'
-
-import { Restaurante } from '../../types/Restaurants'
 
 export type Props = {
   rests: Restaurante[]
@@ -10,11 +8,11 @@ export type Props = {
 
 const RestList = ({ rests }: Props) => {
   return (
-    <ListContainer>
+    <S.ListContainer>
       <Container>
-        <List>
+        <S.List>
           {rests.map((rest) => (
-            <ListItem key={rest.id}>
+            <S.ListItem key={rest.id}>
               <Restaurants
                 id={rest.id}
                 titulo={rest.titulo}
@@ -24,11 +22,11 @@ const RestList = ({ rests }: Props) => {
                 capa={rest.capa}
                 destacado={rest.destacado}
               />
-            </ListItem>
+            </S.ListItem>
           ))}
-        </List>
+        </S.List>
       </Container>
-    </ListContainer>
+    </S.ListContainer>
   )
 }
 

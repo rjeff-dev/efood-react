@@ -11,6 +11,9 @@ export const HeroImage = styled.div`
   background-image: url(${heroImg});
   background-repeat: repeat;
   display: flex;
+
+  @media (max-width: 768px) {
+  }
 `
 
 export const Container = styled.div`

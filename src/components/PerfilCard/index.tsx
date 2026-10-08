@@ -1,8 +1,7 @@
 import { MouseEvent } from 'react'
 
 import Button from '../Button'
-import { Card, Content, Description, Image, Title } from './style'
-import { Product } from '../../types/Restaurants'
+import * as S from './style'
 
 type Props = {
   cardapio: Product
@@ -33,13 +32,13 @@ const PerfilCard = ({ cardapio, onOpen }: Props) => {
   }
 
   return (
-    <Card to={`/Perfil/${cardapio.id}`}>
-      <Image src={cardapio.foto} alt={cardapio.nome} />
+    <S.Card to={`/Perfil/${cardapio.id}`}>
+      <S.Image src={cardapio.foto} alt={cardapio.nome} />
 
-      <Content>
-        <Title>{cardapio.nome}</Title>
+      <S.Content>
+        <S.Title>{cardapio.nome}</S.Title>
 
-        <Description>{getDescricao(cardapio.descricao)}</Description>
+        <S.Description>{getDescricao(cardapio.descricao)}</S.Description>
 
         <Button
           type="button"
@@ -48,8 +47,8 @@ const PerfilCard = ({ cardapio, onOpen }: Props) => {
         >
           {`Adicionar ao carrinho - ${formataPreco(cardapio.preco)}`}
         </Button>
-      </Content>
-    </Card>
+      </S.Content>
+    </S.Card>
   )
 }
 

@@ -1,9 +1,8 @@
-import { Product } from '../../types/Restaurants'
 import { Container } from '../../styles'
 
 import ProductCard from '../PerfilCard'
 
-import { List, Item, Section } from './style'
+import * as S from './style'
 
 type Props = {
   products: Product[]
@@ -11,17 +10,17 @@ type Props = {
 }
 
 const PerfilList = ({ products, onOpen }: Props) => (
-  <Section>
+  <S.Section>
     <Container>
-      <List>
+      <S.List>
         {products.map((produto) => (
-          <Item key={produto.id}>
+          <S.Item key={produto.id}>
             <ProductCard cardapio={produto} onOpen={() => onOpen(produto)} />
-          </Item>
+          </S.Item>
         ))}
-      </List>
+      </S.List>
     </Container>
-  </Section>
+  </S.Section>
 )
 
 export default PerfilList

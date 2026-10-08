@@ -1,12 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import {
-  HeaderContainer,
-  HeaderBar,
-  Logo,
-  CartButton,
-  BackLink
-} from './styles'
+import * as S from './styles'
 
 import { open } from '../../store/reducers/cart'
 import { RootReducer } from '../../store'
@@ -23,17 +17,17 @@ const PerfilHeader = () => {
   }
 
   return (
-    <HeaderBar>
-      <HeaderContainer>
-        <BackLink to="/">Restaurantes</BackLink>
+    <S.HeaderBar>
+      <S.HeaderContainer>
+        <S.BackLink to="/">Restaurantes</S.BackLink>
 
-        <Logo src={logo} alt="eFood" />
+        <S.Logo src={logo} alt="eFood" />
 
-        <CartButton onClick={openCart}>
+        <S.CartButton onClick={openCart}>
           {items.length} produto(s) no carrinho
-        </CartButton>
-      </HeaderContainer>
-    </HeaderBar>
+        </S.CartButton>
+      </S.HeaderContainer>
+    </S.HeaderBar>
   )
 }
 

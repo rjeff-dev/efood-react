@@ -1,22 +1,10 @@
 import { MouseEvent } from 'react'
 import { useDispatch } from 'react-redux'
-import { Product } from '../../types/Restaurants'
 
-import {
-  Overlay,
-  Container,
-  Content,
-  Image,
-  TextContainer,
-  Title,
-  Description,
-  Portion,
-  CloseButton,
-  AddButton
-} from './style'
+import * as S from './style'
 
 import close from '../../assets/images/close_1.png'
-import { add } from '../../store/reducers/cart'
+import { add, open } from '../../store/reducers/cart'
 
 type Props = {
   cardapio: Product
@@ -30,45 +18,38 @@ const formataPreco = (preco = 0) => {
     currency: 'BRL'
   }).format(preco)
 }
-
 const Cardapio = ({ cardapio, isOpen, onClose }: Props) => {
   const dispatch = useDispatch()
-
   if (!isOpen) {
     return null
   }
-
   const addToCart = () => {
     dispatch(add(cardapio))
     onClose()
+    dispatch(open())
   }
-
   return (
-    <Overlay onClick={onClose}>
-      <Container
+    <S.Overlay onClick={onClose}>
+      <S.Container
         onClick={(e: MouseEvent<HTMLDivElement>) => e.stopPropagation()}
       >
-        <CloseButton onClick={onClose}>
+        <S.CloseButton onClick={onClose}>
           <img src={close} alt="Clique aqui para fechar" />
-        </CloseButton>
+        </S.CloseButton>
 
-        <Content>
-          <Image src={cardapio.foto} alt={cardapio.nome} />
-
-          <TextContainer>
-            <Title>{cardapio.nome}</Title>
-
-            <Description>{cardapio.descricao}</Description>
-
-            <Portion>Serve: {cardapio.porcao}</Portion>
-
-            <AddButton onClick={addToCart}>
+        <S.Content>
+          <S.Image src={cardapio.foto} alt={cardapio.nome} />
+          <S.TextContainer>
+            <S.Title>{cardapio.nome}</S.Title>
+            <S.Description>{cardapio.descricao}</S.Description>
+            <S.Portion>Serve: {cardapio.porcao}</S.Portion>
+            <S.AddButton onClick={addToCart}>
               Adicionar ao carrinho - {formataPreco(cardapio.preco)}
-            </AddButton>
-          </TextContainer>
-        </Content>
-      </Container>
-    </Overlay>
+            </S.AddButton>
+          </S.TextContainer>
+        </S.Content>
+      </S.Container>
+    </S.Overlay>
   )
 }
 

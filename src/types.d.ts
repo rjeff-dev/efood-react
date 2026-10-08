@@ -1,4 +1,4 @@
-export interface Product {
+declare interface Product {
   id: number
   nome: string
   descricao: string
@@ -7,7 +7,7 @@ export interface Product {
   foto: string
 }
 
-export interface Restaurante {
+declare interface Restaurante {
   descricao: string
   id: number
   titulo: string

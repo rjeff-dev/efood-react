@@ -6,8 +6,6 @@ import ProfileHero from '../../components/ProfileHero'
 import ProductList from '../../components/PerfiltList'
 import Cardapio from '../../components/Cardapio'
 
-import { Product } from '../../types/Restaurants'
-
 import { useGetRestaurantesQuery } from '../../services/api'
 
 const Perfil = () => {

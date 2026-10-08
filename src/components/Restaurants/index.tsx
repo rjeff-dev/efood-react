@@ -1,15 +1,4 @@
-import {
-  Card,
-  Descricao,
-  Title,
-  Tags,
-  Header,
-  Nota,
-  Estrela,
-  ImgContainer,
-  FoodImage,
-  Content
-} from './styles'
+import * as S from './styles'
 
 import Tag from '../Tag'
 import estrelinha from '../../assets/images/estrelinha.png'
@@ -34,28 +23,28 @@ const Restaurants = ({
   capa,
   id
 }: Props) => (
-  <Card>
-    <ImgContainer>
-      <FoodImage src={capa} alt={titulo} />
+  <S.Card>
+    <S.ImgContainer>
+      <S.FoodImage src={capa} alt={titulo} />
 
-      <Tags>
+      <S.Tags>
         {destacado && <Tag variant="destaque">Destaque da semana</Tag>}
 
         <Tag variant="tipo">{tipo}</Tag>
-      </Tags>
-    </ImgContainer>
+      </S.Tags>
+    </S.ImgContainer>
 
-    <Content>
-      <Header>
-        <Title>{titulo}</Title>
+    <S.Content>
+      <S.Header>
+        <S.Title>{titulo}</S.Title>
 
-        <Nota>
+        <S.Nota>
           {avaliacao}
-          <Estrela src={estrelinha} alt="estrela" />
-        </Nota>
-      </Header>
+          <S.Estrela src={estrelinha} alt="estrela" />
+        </S.Nota>
+      </S.Header>
 
-      <Descricao>{descricao}</Descricao>
+      <S.Descricao>{descricao}</S.Descricao>
 
       <Button
         type="link"
@@ -64,8 +53,8 @@ const Restaurants = ({
       >
         Saiba mais
       </Button>
-    </Content>
-  </Card>
+    </S.Content>
+  </S.Card>
 )
 
 export default Restaurants
