@@ -23,7 +23,7 @@ const DeliveryContent = ({ onContinue, onBack }: DeliveryContentProps) => {
     validationSchema: Yup.object({
       fullName: Yup.string().required('Campo é obrigatório'),
       address: Yup.string().required('Informe o endereço'),
-      city: Yup.string(),
+      city: Yup.string().required('Informe o cidade'),
       zipCode: Yup.string().required('Informe o CEP'),
       number: Yup.string().required('Informe o número')
     }),
@@ -33,7 +33,7 @@ const DeliveryContent = ({ onContinue, onBack }: DeliveryContentProps) => {
   })
 
   const getErrorMessage = (fieldName: string, message?: string) => {
-    const isTouched = fieldName in form.setTouched
+    const isTouched = fieldName in form.touched
     const isInvalid = fieldName in form.errors
 
     if (isTouched && isInvalid) return message
@@ -71,7 +71,7 @@ const DeliveryContent = ({ onContinue, onBack }: DeliveryContentProps) => {
             onChange={form.handleChange}
             onBlur={form.handleBlur}
           />
-          <small>{getErrorMessage('address', form.errors.fullName)}</small>
+          <small>{form.touched.address && form.errors.address}</small>
         </S.Field>
 
         {/* Cidade */}
@@ -85,7 +85,7 @@ const DeliveryContent = ({ onContinue, onBack }: DeliveryContentProps) => {
             onChange={form.handleChange}
             onBlur={form.handleBlur}
           />
-          <small>{getErrorMessage('city', form.errors.fullName)}</small>
+          <small>{form.touched.city && form.errors.city}</small>
         </S.Field>
 
         {/* CEP + Número */}
@@ -101,7 +101,7 @@ const DeliveryContent = ({ onContinue, onBack }: DeliveryContentProps) => {
               onChange={form.handleChange}
               onBlur={form.handleBlur}
             />
-            <small>{getErrorMessage('zipCode', form.errors.fullName)}</small>
+            <small>{form.touched.zipCode && form.errors.zipCode}</small>
           </S.Field>
 
           <S.Field>
@@ -115,7 +115,7 @@ const DeliveryContent = ({ onContinue, onBack }: DeliveryContentProps) => {
               onChange={form.handleChange}
               onBlur={form.handleBlur}
             />
-            <small>{getErrorMessage('number', form.errors.fullName)}</small>
+            <small>{form.touched.number && form.errors.number}</small>
           </S.Field>
         </S.Row>
 

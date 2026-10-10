@@ -1,16 +1,21 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 import { ButtonContainer } from '../Button/style'
 
 export const Card = styled(Link)`
-  width: 320px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+
   background-color: ${cores.vermelhoRosa};
   color: ${cores.branco};
   padding: 8px;
-  display: block;
+
+  display: flex;
   flex-direction: column;
+
   text-decoration: none;
 
   ${ButtonContainer} {
@@ -18,6 +23,7 @@ export const Card = styled(Link)`
     display: flex;
     align-items: center;
     justify-content: center;
+
     background-color: ${cores.branco};
     color: ${cores.vermelhoRosa};
     border: none;
@@ -26,9 +32,15 @@ export const Card = styled(Link)`
 export const Image = styled.img`
   width: 100%;
   height: 168px;
-  object-fit: cover;
+  max-width: 100%;
 
+  object-fit: cover;
   display: block;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
 `
 
 export const Content = styled.div`
@@ -45,6 +57,12 @@ export const Title = styled.h3`
 export const Description = styled.p`
   font-size: 14px;
   line-height: 22px;
-
   margin-bottom: 8px;
+
+  overflow-wrap: anywhere;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 13px;
+    line-height: 20px;
+  }
 `

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { cores, breakpoints } from '../../styles'
 
 type Props = {
   image: string
@@ -8,6 +8,7 @@ type Props = {
 export const HeroContainer = styled.section<Props>`
   width: 100%;
   height: 280px;
+  box-sizing: border-box;
 
   background-image: url(${({ image }) => image});
   background-size: cover;
@@ -15,13 +16,18 @@ export const HeroContainer = styled.section<Props>`
   background-repeat: no-repeat;
 
   position: relative;
-  margin-bottom: 56px;
+  margin-bottom: 40px;
 
   &::before {
     content: '';
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    height: 240px;
+    margin-bottom: 32px;
   }
 `
 
@@ -32,12 +38,18 @@ export const Overlay = styled.div`
   max-width: 1024px;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
 
   margin: 0 auto;
+  padding: 0 24px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 0 20px;
+  }
 `
 
 export const Tipo = styled.span`
@@ -51,6 +63,10 @@ export const Tipo = styled.span`
   letter-spacing: 0;
 
   color: ${cores.branca};
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 26px;
+  }
 `
 
 export const Title = styled.h2`
@@ -64,4 +80,9 @@ export const Title = styled.h2`
   letter-spacing: 0;
 
   color: ${cores.branca};
+
+  @media (max-width: ${breakpoints.tablet}) {
+    font-size: 28px;
+    overflow-wrap: anywhere;
+  }
 `

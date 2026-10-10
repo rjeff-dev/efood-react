@@ -24,7 +24,7 @@ const PaymentContent = ({ onFinish, onBack, total }: PaymentContentProps) => {
     validationSchema: Yup.object({
       cardName: Yup.string().required('Campo é obrigatório'),
       cardNumber: Yup.number().required('Informe o endereço'),
-      cvv: Yup.number(),
+      cvv: Yup.string().required('Informe o CVV'),
       expirationMonth: Yup.number().required('Informe o CEP'),
       expirationYear: Yup.number().required('Informe o número')
     }),
@@ -32,6 +32,14 @@ const PaymentContent = ({ onFinish, onBack, total }: PaymentContentProps) => {
       console.log(values)
     }
   })
+
+  const getErrorMessage = (fieldName: string, message?: string) => {
+    const isTouched = fieldName in paymentForm.touched
+    const isInvalid = fieldName in paymentForm.errors
+
+    if (isTouched && isInvalid) return message
+    return ''
+  }
 
   return (
     <S.Container onSubmit={paymentForm.handleSubmit}>
@@ -48,6 +56,9 @@ const PaymentContent = ({ onFinish, onBack, total }: PaymentContentProps) => {
             onChange={paymentForm.handleChange}
             onBlur={paymentForm.handleBlur}
           />
+          <small>
+            {getErrorMessage('cardName', paymentForm.errors.cardName)}
+          </small>
         </S.Field>
         <S.Row>
           <S.Field>
@@ -60,6 +71,9 @@ const PaymentContent = ({ onFinish, onBack, total }: PaymentContentProps) => {
               onChange={paymentForm.handleChange}
               onBlur={paymentForm.handleBlur}
             />
+            <small>
+              {getErrorMessage('cardNumber', paymentForm.errors.cardName)}
+            </small>
           </S.Field>
           <S.SmallField>
             <S.Label htmlFor="cvv">CVV</S.Label>
@@ -71,6 +85,7 @@ const PaymentContent = ({ onFinish, onBack, total }: PaymentContentProps) => {
               onChange={paymentForm.handleChange}
               onBlur={paymentForm.handleBlur}
             />
+            <small>{getErrorMessage('cvv', paymentForm.errors.cardName)}</small>
           </S.SmallField>
         </S.Row>
         <S.Row>
@@ -84,6 +99,9 @@ const PaymentContent = ({ onFinish, onBack, total }: PaymentContentProps) => {
               onChange={paymentForm.handleChange}
               onBlur={paymentForm.handleBlur}
             />
+            <small>
+              {getErrorMessage('expirationMonth', paymentForm.errors.cardName)}
+            </small>
           </S.Field>
           <S.Field>
             <S.Label htmlFor="expirationYear">Ano de vencimento</S.Label>
@@ -95,6 +113,9 @@ const PaymentContent = ({ onFinish, onBack, total }: PaymentContentProps) => {
               onChange={paymentForm.handleChange}
               onBlur={paymentForm.handleBlur}
             />
+            <small>
+              {getErrorMessage('expirationYear', paymentForm.errors.cardName)}
+            </small>
           </S.Field>
         </S.Row>
 
