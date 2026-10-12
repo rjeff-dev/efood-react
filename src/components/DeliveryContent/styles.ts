@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 import { ButtonContainer } from '../Button/style'
 
 export const Container = styled.form`
@@ -17,7 +17,7 @@ export const Title = styled.h2`
   font-weight: bold;
   line-height: 1.2;
 
-  color: ${cores.branco};
+  color: ${colors.surface};
 `
 
 export const Form = styled.div`
@@ -50,7 +50,7 @@ export const Label = styled.label`
   font-size: 11px;
   font-weight: bold;
 
-  color: ${cores.branco};
+  color: ${colors.surface};
 `
 
 export const Input = styled.input`
@@ -62,8 +62,8 @@ export const Input = styled.input`
   border: none;
   outline: none;
 
-  background-color: ${cores.peachCream};
-  color: ${cores.preto};
+  background-color: ${colors.peachCream};
+  color: ${colors.black};
 
   font-size: 12px;
   font-family: inherit;

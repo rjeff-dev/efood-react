@@ -5,6 +5,7 @@ import * as S from './style'
 
 import close from '../../assets/images/close_1.png'
 import { add, open } from '../../store/reducers/cart'
+import { parseToBrl } from '../../utils'
 
 type Props = {
   cardapio: Product
@@ -12,12 +13,6 @@ type Props = {
   onClose: () => void
 }
 
-const formataPreco = (preco = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
-}
 const Cardapio = ({ cardapio, isOpen, onClose }: Props) => {
   const dispatch = useDispatch()
   if (!isOpen) {
@@ -44,7 +39,7 @@ const Cardapio = ({ cardapio, isOpen, onClose }: Props) => {
             <S.Description>{cardapio.descricao}</S.Description>
             <S.Portion>Serve: {cardapio.porcao}</S.Portion>
             <S.AddButton onClick={addToCart}>
-              Adicionar ao carrinho - {formataPreco(cardapio.preco)}
+              Adicionar ao carrinho - {parseToBrl(cardapio.preco)}
             </S.AddButton>
           </S.TextContainer>
         </S.Content>

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { breakpoints, cores } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import { ButtonContainer } from '../Button/style'
 
 export const Card = styled(Link)`
@@ -10,8 +10,8 @@ export const Card = styled(Link)`
   height: 100%;
   box-sizing: border-box;
 
-  background-color: ${cores.vermelhoRosa};
-  color: ${cores.branco};
+  background-color: ${colors.primary};
+  color: ${colors.surface};
   padding: 8px;
 
   display: flex;
@@ -25,8 +25,8 @@ export const Card = styled(Link)`
     align-items: center;
     justify-content: center;
 
-    background-color: ${cores.branco};
-    color: ${cores.vermelhoRosa};
+    background-color: ${colors.surface};
+    color: ${colors.primary};
     border: none;
   }
 `

@@ -216,7 +216,7 @@ const PaymentContent = ({
               onBlur={paymentForm.handleBlur}
               autoComplete="cc-exp-year"
               inputMode="numeric"
-              placeholder="AAAA"
+              placeholder="AA"
             />
 
             <small>{getErrorMessage('expirationYear')}</small>

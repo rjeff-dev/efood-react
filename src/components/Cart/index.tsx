@@ -10,6 +10,7 @@ import * as S from './styles'
 
 import { close, remove } from '../../store/reducers/cart'
 import { type RootReducer } from '../../store'
+import { parseToBrl } from '../../utils'
 
 type Etapa = 'cart' | 'delivery' | 'payment' | 'success'
 
@@ -31,13 +32,6 @@ const Cart = () => {
 
   const removeFromCart = (id: number) => {
     dispatch(remove(id))
-  }
-
-  const formataPreco = (preco: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(preco)
   }
 
   const total = items.reduce((acc, item) => {
@@ -63,7 +57,7 @@ const Cart = () => {
 
                   <div>
                     <h3>{item.nome}</h3>
-                    <span>{formataPreco(item.preco)}</span>
+                    <span>{parseToBrl(item.preco)}</span>
                   </div>
 
                   <button
@@ -77,7 +71,7 @@ const Cart = () => {
 
             <S.TotalPrice>
               <p>Valor total</p>
-              <p>{formataPreco(total)}</p>
+              <p>{parseToBrl(total)}</p>
             </S.TotalPrice>
 
             <Button
@@ -102,7 +96,7 @@ const Cart = () => {
 
         {etapa === 'payment' && delivery && (
           <PaymentContent
-            total={formataPreco(total)}
+            total={parseToBrl(total)}
             delivery={delivery}
             products={products}
             onFinish={(id: string) => {

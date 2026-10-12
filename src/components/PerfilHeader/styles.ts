@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 import fundo from '../../assets/images/fundo.png'
-import { cores, breakpoints } from '../../styles'
+import { colors, breakpoints } from '../../styles'
 
 export const HeaderBar = styled.header`
   width: 100%;
@@ -65,7 +65,7 @@ export const Logo = styled.img`
 `
 
 export const BackLink = styled(Link)`
-  color: ${cores.vermelhoRosa};
+  color: ${colors.primary};
   font-size: 18px;
   font-weight: 700;
   text-decoration: none;
@@ -83,7 +83,7 @@ export const BackLink = styled(Link)`
 `
 
 export const CartButton = styled.button`
-  color: ${cores.vermelhoRosa};
+  color: ${colors.primary};
   font-size: 18px;
   font-weight: 700;
   font-family: inherit;

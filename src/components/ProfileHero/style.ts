@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores, breakpoints } from '../../styles'
+import { colors, breakpoints } from '../../styles'
 
 type Props = {
   image: string
@@ -62,7 +62,7 @@ export const Tipo = styled.span`
   line-height: 100%;
   letter-spacing: 0;
 
-  color: ${cores.branca};
+  color: ${colors.white};
 
   @media (max-width: ${breakpoints.tablet}) {
     font-size: 26px;
@@ -79,7 +79,7 @@ export const Title = styled.h2`
   line-height: 100%;
   letter-spacing: 0;
 
-  color: ${cores.branca};
+  color: ${colors.white};
 
   @media (max-width: ${breakpoints.tablet}) {
     font-size: 28px;

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 import { ButtonContainer } from '../Button/style'
 
 export const Container = styled.div`
@@ -19,7 +19,7 @@ export const Title = styled.h2`
   font-weight: bold;
   line-height: 1.3;
 
-  color: ${cores.branco};
+  color: ${colors.surface};
 `
 
 export const Text = styled.p`
@@ -28,7 +28,7 @@ export const Text = styled.p`
   font-size: 11px;
   line-height: 1.5;
 
-  color: ${cores.branco};
+  color: ${colors.surface};
 `
 
 export const Button = styled(ButtonContainer)`

@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { cores, breakpoints } from '../../styles'
+import { colors, breakpoints } from '../../styles'
 
 export const Card = styled.div`
   position: relative;
 
-  background-color: ${cores.branca};
-  border: 1px solid ${cores.vermelhoRosa};
+  background-color: ${colors.white};
+  border: 1px solid ${colors.primary};
 
   width: 100%;
   max-width: 472px;
@@ -76,7 +76,7 @@ export const Title = styled.h3`
 
   font-weight: bold;
   font-size: 18px;
-  color: ${cores.vermelhoRosa};
+  color: ${colors.primary};
   overflow-wrap: anywhere;
 
   @media (max-width: ${breakpoints.tablet}) {
@@ -91,7 +91,7 @@ export const Nota = styled.div`
   flex-shrink: 0;
 
   font-weight: bold;
-  color: ${cores.vermelhoRosa};
+  color: ${colors.primary};
 `
 
 export const Estrela = styled.img`

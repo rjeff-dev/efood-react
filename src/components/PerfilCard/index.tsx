@@ -2,17 +2,11 @@ import { MouseEvent } from 'react'
 
 import Button from '../Button'
 import * as S from './style'
+import { parseToBrl } from '../../utils'
 
 type Props = {
   cardapio: Product
   onOpen: () => void
-}
-
-const formataPreco = (preco = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
 }
 
 export const getDescricao = (descricao: string) => {
@@ -45,7 +39,7 @@ const PerfilCard = ({ cardapio, onOpen }: Props) => {
           title="Adicionar ao carrinho"
           onClick={handleOpen}
         >
-          {`Adicionar ao carrinho - ${formataPreco(cardapio.preco)}`}
+          {`Adicionar ao carrinho - ${parseToBrl(cardapio.preco)}`}
         </Button>
       </S.Content>
     </S.Card>

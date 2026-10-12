@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores, breakpoints } from '../../styles'
+import { colors, breakpoints } from '../../styles'
 
 export const Overlay = styled.div`
   position: fixed;
@@ -27,7 +27,7 @@ export const Container = styled.div`
   overflow-y: auto;
   box-sizing: border-box;
 
-  background-color: ${cores.vermelhoRosa};
+  background-color: ${colors.primary};
   padding: 32px;
 
   @media (max-width: ${breakpoints.tablet}) {
@@ -63,7 +63,7 @@ export const Image = styled.img`
 export const TextContainer = styled.div`
   flex: 1;
   min-width: 0;
-  color: ${cores.branco};
+  color: ${colors.surface};
   overflow-wrap: anywhere;
 `
 
@@ -111,7 +111,7 @@ export const AddButton = styled.button`
   box-sizing: border-box;
 
   background-color: #ffe8d9;
-  color: ${cores.vermelhoRosa};
+  color: ${colors.primary};
 
   border: none;
   cursor: pointer;

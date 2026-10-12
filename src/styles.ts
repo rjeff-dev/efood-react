@@ -1,13 +1,13 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
-export const cores = {
-  vermelhoRosa: '#E66767',
-  amarelo: '#FFB930',
-  fundoQuente: '#FFF8F2',
-  branco: '#FFEBD9',
+export const colors = {
+  primary: '#E66767',
+  secondary: '#FFB930',
+  background: '#FFF8F2',
+  surface: '#FFEBD9',
   peachCream: '#FFF0E6',
-  branca: '#FFFFFF',
-  preto: '#000'
+  white: '#FFFFFF',
+  black: '#000000'
 }
 
 export const breakpoints = {
@@ -25,8 +25,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${cores.fundoQuente};
-    color: ${cores.vermelhoRosa};
+    background-color: ${colors.background};
+    color: ${colors.primary};
   }
 `
 

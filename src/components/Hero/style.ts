@@ -2,12 +2,12 @@ import styled from 'styled-components'
 
 import heroImg from '../../assets/images/Vector.png'
 
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const HeroImage = styled.div`
   width: 100%;
   height: 384px;
-  background-color: ${cores.fundoQuente};
+  background-color: ${colors.background};
   background-image: url(${heroImg});
   background-repeat: repeat;
   display: flex;
@@ -40,5 +40,5 @@ export const Title = styled.p`
   height: 84px;
   font-size: 36px;
   font-weight: bold;
-  color: ${cores.vermelhoRosa};
+  color: ${colors.primary};
 `
