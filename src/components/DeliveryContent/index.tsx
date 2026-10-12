@@ -5,8 +5,17 @@ import * as S from './styles'
 
 import * as Yup from 'yup'
 
+export type DeliveryValues = {
+  fullName: string
+  address: string
+  city: string
+  zipCode: string
+  number: string
+  complement: string
+}
+
 type DeliveryContentProps = {
-  onContinue: () => void
+  onContinue: (values: DeliveryValues) => void
   onBack: () => void
 }
 
@@ -28,7 +37,7 @@ const DeliveryContent = ({ onContinue, onBack }: DeliveryContentProps) => {
       number: Yup.string().required('Informe o número')
     }),
     onSubmit: (values) => {
-      console.log(values)
+      onContinue(values)
     }
   })
 
@@ -133,9 +142,8 @@ const DeliveryContent = ({ onContinue, onBack }: DeliveryContentProps) => {
         </S.Field>
 
         <Button
-          type="button"
+          type="submit"
           title="Clique aqui para continuar com o pagamento"
-          onClick={onContinue}
         >
           Continuar com o pagamento
         </Button>

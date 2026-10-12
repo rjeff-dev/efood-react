@@ -20,7 +20,7 @@ export const Title = styled.h2`
   color: ${cores.branco};
 `
 
-export const Form = styled.form`
+export const Form = styled.div`
   width: 100%;
 
   display: flex;

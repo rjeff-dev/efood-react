@@ -5,6 +5,7 @@ export const cores = {
   amarelo: '#FFB930',
   fundoQuente: '#FFF8F2',
   branco: '#FFEBD9',
+  peachCream: '#FFF0E6',
   branca: '#FFFFFF',
   preto: '#000'
 }

@@ -20,7 +20,7 @@ export const Title = styled.h2`
   color: ${cores.branco};
 `
 
-export const Form = styled.form`
+export const Form = styled.div`
   width: 100%;
 
   display: flex;
@@ -62,8 +62,8 @@ export const Input = styled.input`
   border: none;
   outline: none;
 
-  background-color: #fff0e6;
-  color: #000;
+  background-color: ${cores.peachCream};
+  color: ${cores.preto};
 
   font-size: 12px;
   font-family: inherit;
