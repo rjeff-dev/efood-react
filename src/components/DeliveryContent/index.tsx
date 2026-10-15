@@ -1,3 +1,4 @@
+import { IMaskInput } from 'react-imask'
 import { useFormik } from 'formik'
 import Button from '../Button'
 
@@ -101,14 +102,18 @@ const DeliveryContent = ({ onContinue, onBack }: DeliveryContentProps) => {
         <S.Row>
           <S.Field>
             <S.Label htmlFor="zipCode">CEP</S.Label>
-
-            <S.Input
+            <IMaskInput
               id="zipCode"
               name="zipCode"
-              type="text"
+              mask="00000-000"
               value={form.values.zipCode}
-              onChange={form.handleChange}
-              onBlur={form.handleBlur}
+              inputMode="numeric"
+              onAccept={(value) => {
+                form.setFieldValue('zipCode', value)
+              }}
+              onBlur={() => {
+                form.setFieldTouched('zipCode', true)
+              }}
             />
             <small>{form.touched.zipCode && form.errors.zipCode}</small>
           </S.Field>
@@ -120,8 +125,12 @@ const DeliveryContent = ({ onContinue, onBack }: DeliveryContentProps) => {
               id="number"
               name="number"
               type="text"
+              inputMode="numeric"
               value={form.values.number}
-              onChange={form.handleChange}
+              onChange={(event) => {
+                const onlyNumbers = event.target.value.replace(/\D/g, '')
+                form.setFieldValue('number', onlyNumbers)
+              }}
               onBlur={form.handleBlur}
             />
             <small>{form.touched.number && form.errors.number}</small>

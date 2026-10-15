@@ -30,6 +30,8 @@ type CheckoutResponse = {
   }
 }
 
+const onlyNumbers = (value: string) => value.replace(/\D/g, '')
+
 const PaymentContent = ({
   onFinish,
   onBack,
@@ -48,24 +50,32 @@ const PaymentContent = ({
       expirationMonth: '',
       expirationYear: ''
     },
+
     validationSchema: Yup.object({
-      cardName: Yup.string().required('Informe o nome no cartão'),
+      cardName: Yup.string().trim().required('Informe o nome no cartão'),
 
-      cardNumber: Yup.string().required('Informe o número do cartão'),
+      cardNumber: Yup.string()
+        .required('Informe o número do cartão')
+        .matches(/^\d+$/, 'Digite somente números')
+        .test(
+          'card-number-length',
+          'Informe um número de cartão válido',
+          (value) => !!value && value.length >= 13 && value.length <= 19
+        ),
 
-      cvv: Yup.string().required('Informe o CVV'),
+      cvv: Yup.string()
+        .required('Informe o CVV')
+        .matches(/^\d{3,4}$/, 'O CVV deve ter 3 ou 4 números'),
 
-      expirationMonth: Yup.number()
-        .typeError('Informe o mês de vencimento')
-        .integer('Informe um mês válido')
-        .min(1, 'Informe um mês válido')
-        .max(12, 'Informe um mês válido')
-        .required('Informe o mês de vencimento'),
+      expirationMonth: Yup.string()
+        .required('Informe o mês de vencimento')
+        .matches(/^(0?[1-9]|1[0-2])$/, 'Informe um mês válido'),
 
       expirationYear: Yup.string()
-        .matches(/^\d{2}$/, 'Informe o ano com dois dígitos (YY)')
         .required('Informe o ano de vencimento')
+        .matches(/^\d{2}$/, 'Informe o ano com dois dígitos (AA)')
     }),
+
     onSubmit: async (values) => {
       setErrorMessage('')
 
@@ -158,10 +168,14 @@ const PaymentContent = ({
               name="cardNumber"
               type="text"
               value={paymentForm.values.cardNumber}
-              onChange={paymentForm.handleChange}
+              onChange={(event) => {
+                const value = onlyNumbers(event.target.value).slice(0, 19)
+                paymentForm.setFieldValue('cardNumber', value)
+              }}
               onBlur={paymentForm.handleBlur}
               autoComplete="cc-number"
               inputMode="numeric"
+              maxLength={19}
             />
 
             <small>{getErrorMessage('cardNumber')}</small>
@@ -175,10 +189,14 @@ const PaymentContent = ({
               name="cvv"
               type="text"
               value={paymentForm.values.cvv}
-              onChange={paymentForm.handleChange}
+              onChange={(event) => {
+                const value = onlyNumbers(event.target.value).slice(0, 4)
+                paymentForm.setFieldValue('cvv', value)
+              }}
               onBlur={paymentForm.handleBlur}
               autoComplete="cc-csc"
               inputMode="numeric"
+              maxLength={4}
             />
 
             <small>{getErrorMessage('cvv')}</small>
@@ -194,10 +212,14 @@ const PaymentContent = ({
               name="expirationMonth"
               type="text"
               value={paymentForm.values.expirationMonth}
-              onChange={paymentForm.handleChange}
+              onChange={(event) => {
+                const value = onlyNumbers(event.target.value).slice(0, 2)
+                paymentForm.setFieldValue('expirationMonth', value)
+              }}
               onBlur={paymentForm.handleBlur}
               autoComplete="cc-exp-month"
               inputMode="numeric"
+              maxLength={2}
               placeholder="MM"
             />
 
@@ -212,10 +234,14 @@ const PaymentContent = ({
               name="expirationYear"
               type="text"
               value={paymentForm.values.expirationYear}
-              onChange={paymentForm.handleChange}
+              onChange={(event) => {
+                const value = onlyNumbers(event.target.value).slice(0, 2)
+                paymentForm.setFieldValue('expirationYear', value)
+              }}
               onBlur={paymentForm.handleBlur}
               autoComplete="cc-exp-year"
               inputMode="numeric"
+              maxLength={2}
               placeholder="AA"
             />
 
